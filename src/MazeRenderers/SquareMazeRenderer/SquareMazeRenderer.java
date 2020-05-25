@@ -1,10 +1,9 @@
-package MazeRenderers;
+package MazeRenderers.SquareMazeRenderer;
 
-import Mazes.SquareMaze;
+import Mazes.SquareMaze.SquareMaze;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 
 public class SquareMazeRenderer {
     public static BufferedImage renderMaze(SquareMaze maze,SquareMazeRendererOptions options){

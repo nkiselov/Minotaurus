@@ -1,7 +1,9 @@
 package MazeRenderers;
 
+import MazeRenderers.SquareMazeRenderer.SquareMazeRenderer;
+import MazeRenderers.SquareMazeRenderer.SquareMazeRendererOptions;
 import Mazes.Maze;
-import Mazes.SquareMaze;
+import Mazes.SquareMaze.SquareMaze;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

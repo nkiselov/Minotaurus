@@ -1,3 +1,5 @@
 package MazeGenerators;
 
-public interface GeneratorOptions { }
+public interface GeneratorOptions {
+    public GeneratorType getGeneratorType();
+}

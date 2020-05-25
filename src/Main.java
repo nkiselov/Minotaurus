@@ -1,11 +1,10 @@
-import MazeGenerators.Backtracker.SquareBacktracker;
-import MazeGenerators.Backtracker.SquareBacktrackerOptions;
-import MazeGenerators.GeneratorType;
+import MazeCoordinates.SquareCoordinate;
+import MazeGenerators.Backtracker.BacktrackerOptions;
 import MazeGenerators.MazeGenerator;
 import MazeRenderers.MazeRenderer;
-import MazeRenderers.SquareMazeRendererOptions;
+import MazeRenderers.SquareMazeRenderer.SquareMazeRendererOptions;
 import Mazes.Maze;
-import Mazes.MazeType;
+import Mazes.SquareMaze.SquareMazeOptions;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,7 +22,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
         int hardness = 5;
-        Maze maze =  MazeGenerator.generateMaze(GeneratorType.BACKTRACKER, MazeType.SQUARE,new SquareBacktrackerOptions(15*hardness,20*hardness));
+        Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate(0,0)), new SquareMazeOptions(15*hardness,20*hardness));
         MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10),new File("image.png"),"png");
     }
 
