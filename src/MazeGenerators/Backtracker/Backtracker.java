@@ -37,6 +37,14 @@ public class Backtracker {
                 break;
             }
         }
+        for(int i=0; i<directions.length; i++){
+            if(!maze.inside(maze.move(maze.getStart(),i))){
+                maze.removeWall(maze.getStart(),directions[i]);
+            }
+            if(!maze.inside(maze.move(maze.getFinish(),i))){
+                maze.removeWall(maze.getFinish(),directions[i]);
+            }
+        }
     }
 
     static void shuffle(int[] array){

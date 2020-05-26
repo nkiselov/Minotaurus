@@ -21,7 +21,7 @@ public class SquareMazeOptions implements MazeOptions {
         this.width = width;
         this.height = height;
         start = new SquareCoordinate(0,0);
-        start = new SquareCoordinate(width-1,height-1);
+        finish = new SquareCoordinate(width-1,height-1);
     }
 
     @Override

@@ -2,6 +2,8 @@ package MazeGenerators;
 
 import MazeGenerators.Backtracker.Backtracker;
 import MazeGenerators.Backtracker.BacktrackerOptions;
+import MazeGenerators.Kruskal.Kruskal;
+import MazeGenerators.Kruskal.KruskalOptions;
 import Mazes.Maze;
 import Mazes.MazeOptions;
 import Mazes.SquareMaze.SquareMaze;
@@ -20,6 +22,9 @@ public class MazeGenerator {
         switch (generatorOptions.getGeneratorType()){
             case BACKTRACKER:
                 Backtracker.generateMaze((BacktrackerOptions)generatorOptions,maze);
+                break;
+            case KRUSKAL:
+                Kruskal.generateMaze((KruskalOptions)generatorOptions,maze);
                 break;
             default:
                 return null;
