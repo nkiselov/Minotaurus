@@ -13,7 +13,7 @@ public interface Maze {
     public List<Border> getAllBorders();
     public int getTotalCells();
     public int uniqueId(MazeCoordinate mc);
-    public void removeWall(MazeCoordinate mc, int directionIndex);
+    public void removeWall(MazeCoordinate mc, int direction);
     public void removeWall(Border border);
     public MazeCoordinate move(MazeCoordinate mc, int directionIndex);
     public boolean inside(MazeCoordinate mc);

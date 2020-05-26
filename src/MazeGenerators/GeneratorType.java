@@ -1,5 +1,5 @@
 package MazeGenerators;
 
 public enum GeneratorType {
-    BACKTRACKER,KRUSKAL
+    BACKTRACKER,KRUSKAL,PRIM
 }

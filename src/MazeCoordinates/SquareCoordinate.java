@@ -8,4 +8,15 @@ public class SquareCoordinate implements MazeCoordinate{
         this.x = x;
         this.y = y;
     }
+
+    @Override
+    public boolean equals(Object other){
+        SquareCoordinate ot = (SquareCoordinate)other;
+        return ot.x==x && ot.y == y;
+    }
+
+    @Override
+    public String toString(){
+        return "("+x+","+y+")";
+    }
 }

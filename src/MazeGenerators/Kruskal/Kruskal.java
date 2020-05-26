@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Kruskal {
-    public static void generateMaze(KruskalOptions bp, Maze maze) {
+    public static void generateMaze(KruskalOptions kp, Maze maze) {
         List<Border> borders = maze.getAllBorders();
         Collections.shuffle(borders);
         int[] cellIds = new int[maze.getTotalCells()];

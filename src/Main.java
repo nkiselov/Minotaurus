@@ -2,6 +2,7 @@ import MazeCoordinates.SquareCoordinate;
 import MazeGenerators.Backtracker.BacktrackerOptions;
 import MazeGenerators.Kruskal.KruskalOptions;
 import MazeGenerators.MazeGenerator;
+import MazeGenerators.Prim.PrimOptions;
 import MazeRenderers.MazeRenderer;
 import MazeRenderers.SquareMazeRenderer.SquareMazeRendererOptions;
 import Mazes.Maze;
@@ -23,8 +24,9 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
         double hardness = 4;
-        //Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate(15*hardness/2,0)), new SquareMazeOptions(15*hardness,20*hardness));
-        Maze maze = MazeGenerator.generateMaze(new KruskalOptions(), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
+        //Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate((int)(15*hardness/2),0)), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
+        //Maze maze = MazeGenerator.generateMaze(new KruskalOptions(), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
+        Maze maze = MazeGenerator.generateMaze(new PrimOptions(new SquareCoordinate(0,0)), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
         MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10),new File("image.png"),"png");
     }
 
