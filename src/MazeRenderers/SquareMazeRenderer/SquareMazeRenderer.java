@@ -1,13 +1,17 @@
 package MazeRenderers.SquareMazeRenderer;
 
+import MazeUtilities.MazeImage;
+import MazeUtilities.MazePath;
+import MazeUtilities.SquareCoordinate;
 import MazeUtilities.SquareDirection;
+import Mazes.MazeType;
 import Mazes.SquareMaze.SquareMaze;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class SquareMazeRenderer {
-    public static BufferedImage renderMaze(SquareMaze maze,SquareMazeRendererOptions options){
+    public static MazeImage renderMaze(SquareMaze maze, SquareMazeRendererOptions options){
         int pixelsPerSquare = options.pixelsPerSquare;
         BufferedImage bufferedImage =
                 new BufferedImage(pixelsPerSquare*maze.width+2, pixelsPerSquare*maze.height+2,
@@ -30,6 +34,19 @@ public class SquareMazeRenderer {
                 }
             }
         }
-        return bufferedImage;
+        return new MazeImage(bufferedImage,MazeType.SQUARE,options);
+    }
+
+    public static MazeImage drawOverlayPath(MazeImage mazeImage, MazePath path, Color color){
+        Graphics2D gc = mazeImage.mazeBufferedImage.createGraphics();
+        gc.setStroke(new BasicStroke(1));
+        gc.setPaint(color);
+        int pixelsPerSquare = ((SquareMazeRendererOptions)mazeImage.options).pixelsPerSquare;
+        for(int i=0; i<path.path.size()-1; i++){
+            SquareCoordinate start = (SquareCoordinate)path.path.get(i);
+            SquareCoordinate end= (SquareCoordinate)path.path.get(i+1);
+            gc.drawLine(start.x*pixelsPerSquare+pixelsPerSquare/2,start.y*pixelsPerSquare+pixelsPerSquare/2,end.x*pixelsPerSquare+pixelsPerSquare/2,end.y*pixelsPerSquare+pixelsPerSquare/2);
+        }
+        return mazeImage;
     }
 }

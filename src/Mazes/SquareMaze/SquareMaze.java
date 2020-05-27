@@ -112,4 +112,26 @@ public class SquareMaze implements Maze {
     public MazeCoordinate getFinish() {
         return finish;
     }
+
+    @Override
+    public List<MazeDirection> getMovableDirections(MazeCoordinate mc) {
+        List<MazeDirection> movableDirections = new ArrayList<>();
+        SquareCoordinate sc = (SquareCoordinate)mc;
+        for(int i = 0 ; i<4; i++) {
+            if((grid[sc.x][sc.y]|SquareDirection.directions[i])==grid[sc.x][sc.y]){
+                MazeDirection dir = new SquareDirection(i);
+                if(inside(move(sc,dir))) {
+                    movableDirections.add(dir);
+                }
+            }
+        }
+        return movableDirections;
+    }
+
+    @Override
+    public double distance(MazeCoordinate c1, MazeCoordinate c2) {
+        int dx = ((SquareCoordinate)c2).x-((SquareCoordinate)c1).x;
+        int dy = ((SquareCoordinate)c2).y-((SquareCoordinate)c1).y;
+        return Math.sqrt(dx*dx+dy*dy);
+    }
 }

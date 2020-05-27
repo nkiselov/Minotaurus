@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface Maze {
     public MazeType getMazeType();
+    //Generator
     public void initialize(MazeOptions mazeOptions);
     public List<Border> getAllBorders();
     public int getTotalCells();
@@ -20,4 +21,7 @@ public interface Maze {
     public boolean getIsolated(MazeCoordinate mc);
     public MazeCoordinate getStart();
     public MazeCoordinate getFinish();
+    //Solver
+    public List<MazeDirection> getMovableDirections(MazeCoordinate mc);
+    public double distance(MazeCoordinate c1,MazeCoordinate c2);
 }

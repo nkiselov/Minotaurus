@@ -40,9 +40,9 @@ public class Kruskal {
                 maze.removeWall(start,dir);
             }
         }
-        MazeCoordinate finish = maze.getStart();
+        MazeCoordinate finish = maze.getFinish();
         for(MazeDirection dir : maze.getPossibleDirections(finish)){
-            if(!maze.inside(maze.move(maze.getStart(),dir))){
+            if(!maze.inside(maze.move(maze.getFinish(),dir))){
                 maze.removeWall(finish,dir);
             }
         }
