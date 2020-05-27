@@ -1,30 +1,27 @@
 package MazeGenerators.Backtracker;
 
-import MazeCoordinates.MazeCoordinate;
+import MazeUtilities.MazeCoordinate;
+import MazeUtilities.MazeDirection;
 import Mazes.Maze;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
 public class Backtracker {
 
     public static void generateMaze(BacktrackerOptions bp, Maze maze){
         Stack<MazeCoordinate> visited = new Stack<>();
-        int[] directions = maze.getDirections();
-        int[] opposites = maze.getOpposites();
-        int[] indeces = new int[directions.length];
-        for (int i=0; i<indeces.length; i++){
-            indeces[i]=i;
-        }
         MazeCoordinate cp = bp.start;
         main:
         while(true) {
-            shuffle(indeces);
-            for (int i : indeces) {
-                MazeCoordinate np = maze.move(cp,i);
+            List<MazeDirection> possibleDirections = maze.getPossibleDirections(cp);
+            Collections.shuffle(possibleDirections);
+            for (MazeDirection dir : possibleDirections) {
+                MazeCoordinate np = maze.move(cp,dir);
                 if (maze.inside(np)) {
-                    if(maze.getValue(np)==0) {
-                        maze.removeWall(cp,directions[i]);
-                        maze.removeWall(np,opposites[i]);
+                    if(maze.getIsolated(np)) {
+                        maze.removeWall(cp,dir);
                         visited.push(cp);
                         cp = np;
                         continue main;
@@ -37,12 +34,16 @@ public class Backtracker {
                 break;
             }
         }
-        for(int i=0; i<directions.length; i++){
-            if(!maze.inside(maze.move(maze.getStart(),i))){
-                maze.removeWall(maze.getStart(),directions[i]);
+        MazeCoordinate start = maze.getStart();
+        for(MazeDirection dir : maze.getPossibleDirections(start)){
+            if(!maze.inside(maze.move(maze.getStart(),dir))){
+                maze.removeWall(start,dir);
             }
-            if(!maze.inside(maze.move(maze.getFinish(),i))){
-                maze.removeWall(maze.getFinish(),directions[i]);
+        }
+        MazeCoordinate finish = maze.getStart();
+        for(MazeDirection dir : maze.getPossibleDirections(finish)){
+            if(!maze.inside(maze.move(maze.getStart(),dir))){
+                maze.removeWall(finish,dir);
             }
         }
     }

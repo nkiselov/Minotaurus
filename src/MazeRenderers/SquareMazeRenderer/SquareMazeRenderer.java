@@ -1,5 +1,6 @@
 package MazeRenderers.SquareMazeRenderer;
 
+import MazeUtilities.SquareDirection;
 import Mazes.SquareMaze.SquareMaze;
 
 import java.awt.*;
@@ -19,9 +20,9 @@ public class SquareMazeRenderer {
         for(int x=0; x<maze.width; x++) {
             for (int y = 0; y < maze.height; y++) {
                 for (int i = 0; i < 4; i++) {
-                    if ((maze.grid[x][y] | SquareMaze.directions[i]) != maze.grid[x][y]) {
-                        int dx = SquareMaze.dx[i] * pixelsPerSquare;
-                        int dy = SquareMaze.dy[i] * pixelsPerSquare;
+                    if ((maze.grid[x][y] | SquareDirection.directions[i]) != maze.grid[x][y]) {
+                        int dx = SquareDirection.dxi[i] * pixelsPerSquare;
+                        int dy = SquareDirection.dyi[i] * pixelsPerSquare;
                         int ox = x * pixelsPerSquare + 1;
                         int oy = y * pixelsPerSquare + 1;
                         gc.drawLine(ox + Math.max(dx, 0), oy + Math.max(dy, 0), ox + Math.max(dx, 0) + Math.abs(dy), oy + Math.max(dy, 0) + Math.abs(dx));

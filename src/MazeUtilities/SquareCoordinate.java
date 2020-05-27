@@ -1,4 +1,4 @@
-package MazeCoordinates;
+package MazeUtilities;
 
 public class SquareCoordinate implements MazeCoordinate{
     public int x;

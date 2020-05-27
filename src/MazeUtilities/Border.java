@@ -1,4 +1,4 @@
-package MazeCoordinates;
+package MazeUtilities;
 
 public class Border {
     public MazeCoordinate c1;

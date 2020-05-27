@@ -1,6 +1,6 @@
 package MazeGenerators.Prim;
 
-import MazeCoordinates.MazeCoordinate;
+import MazeUtilities.MazeCoordinate;
 import MazeGenerators.GeneratorOptions;
 import MazeGenerators.GeneratorType;
 

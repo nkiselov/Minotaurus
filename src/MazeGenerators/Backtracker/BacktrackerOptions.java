@@ -1,6 +1,6 @@
 package MazeGenerators.Backtracker;
 
-import MazeCoordinates.MazeCoordinate;
+import MazeUtilities.MazeCoordinate;
 import MazeGenerators.GeneratorOptions;
 import MazeGenerators.GeneratorType;
 

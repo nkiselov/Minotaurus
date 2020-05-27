@@ -1,4 +1,4 @@
-package MazeCoordinates;
+package MazeUtilities;
 
 public interface MazeCoordinate {
 }

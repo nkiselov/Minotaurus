@@ -1,6 +1,8 @@
 package MazeGenerators.Kruskal;
 
-import MazeCoordinates.Border;
+import MazeUtilities.Border;
+import MazeUtilities.MazeCoordinate;
+import MazeUtilities.MazeDirection;
 import Mazes.Maze;
 
 import java.util.Collections;
@@ -32,13 +34,16 @@ public class Kruskal {
                 remainingIds--;
             }
         }
-        int[] directions = maze.getDirections();
-        for(int i=0; i<directions.length; i++){
-            if(!maze.inside(maze.move(maze.getStart(),i))){
-                maze.removeWall(maze.getStart(),directions[i]);
+        MazeCoordinate start = maze.getStart();
+        for(MazeDirection dir : maze.getPossibleDirections(start)){
+            if(!maze.inside(maze.move(maze.getStart(),dir))){
+                maze.removeWall(start,dir);
             }
-            if(!maze.inside(maze.move(maze.getFinish(),i))){
-                maze.removeWall(maze.getFinish(),directions[i]);
+        }
+        MazeCoordinate finish = maze.getStart();
+        for(MazeDirection dir : maze.getPossibleDirections(finish)){
+            if(!maze.inside(maze.move(maze.getStart(),dir))){
+                maze.removeWall(finish,dir);
             }
         }
     }
