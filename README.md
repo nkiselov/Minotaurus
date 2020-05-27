@@ -28,14 +28,19 @@ MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10),new File("maze.png
 ```java
 //Create 50x50 maze using backtracker starting at (10,10)
 Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate(10,10)), new SquareMazeOptions(50,50));
+
 //Render maze
 MazeImage mazeImage = MazeRenderer.renderMaze(maze, new SquareMazeRendererOptions(10));
+
 //Save maze image without solution
 MazeRenderer.saveMazeImage(mazeImage,new File("maze.png"),"png");
+
 //Generate solution using AStar
 MazePath solution = AStar.solve(maze);
+
 //Draw solution overlay red
 MazeRenderer.drawOverlayPath(mazeImage,solution, Color.red);
+
 //Save maze image with solution
 MazeRenderer.saveMazeImage(mazeImage,new File("mazeWithSolution.png"),"png");
 ```
