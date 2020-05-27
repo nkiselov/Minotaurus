@@ -20,8 +20,8 @@ Maze maze = MazeGenerator.generateMaze(new PrimOptions(new SquareCoordinate(0,0)
 
 ### Rendering maze
 ```java
-//Render square maze 10 pixels per tile and output to maze.png
-MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10),new File("maze.png"),"png");
+//Render square maze 10 pixels per tile, 1 pixel margin and output to maze.png
+MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10,1),new File("maze.png"),"png");
 ```
 
 ### Finding and rendering solution
@@ -30,7 +30,7 @@ MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10),new File("maze.png
 Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate(10,10)), new SquareMazeOptions(50,50));
 
 //Render maze
-MazeImage mazeImage = MazeRenderer.renderMaze(maze, new SquareMazeRendererOptions(10));
+MazeImage mazeImage = MazeRenderer.renderMaze(maze, new SquareMazeRendererOptions(10,1));
 
 //Save maze image without solution
 MazeRenderer.saveMazeImage(mazeImage,new File("maze.png"),"png");
