@@ -1,0 +1,4 @@
+Backtracker: starting at (10,10,false), maze side length: 50, red
+Kruskal: maze side length: 50, blue
+Prim: starting at (10,10,false), maze side length: 50, green
+Rendered with 1 pixel margin

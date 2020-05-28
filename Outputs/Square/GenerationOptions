@@ -1,4 +1,4 @@
-Backtracker: starting at (10x10), maze size: 50x50, red
+Backtracker: starting at (10,10), maze size: 50x50, red
 Kruskal: maze size: 50x50, blue
-Prim: starting at (10x10), maze size: 50x50, green
+Prim: starting at (10,10), maze size: 50x50, green
 Rendered with 1 pixel margin
