@@ -28,16 +28,16 @@ public class TriangularMazeRenderer {
         for(int x=0; x<maze.sideLength; x++){
             for(int y=0; y<maze.sideLength-x; y++){
                 int value = maze.grid[x][y][0];
-                int baseY = bufferedImage.getHeight()-(int) (yMargin+y*triangleTop*pixelsPerTriangle);
+                double baseY = bufferedImage.getHeight()-yMargin-y*triangleTop*pixelsPerTriangle;
                 int baseX = options.margin+pixelsPerTriangle*x+y*pixelsPerTriangle/2;
                 if((value|1)!=value){
-                    gc.drawLine(baseX+pixelsPerTriangle/2, (int) (baseY-triangleTop*pixelsPerTriangle),baseX+pixelsPerTriangle,baseY);
+                    gc.drawLine(baseX+pixelsPerTriangle/2, (int) (baseY-triangleTop*pixelsPerTriangle),baseX+pixelsPerTriangle,(int)baseY);
                 }
                 if((value|4)!=value){
-                    gc.drawLine(baseX,baseY,baseX+pixelsPerTriangle/2,(int) (baseY-triangleTop*pixelsPerTriangle));
+                    gc.drawLine(baseX,(int)baseY,baseX+pixelsPerTriangle/2,(int) (baseY-triangleTop*pixelsPerTriangle));
                 }
                 if((value|2)!=value){
-                    gc.drawLine(baseX,baseY,baseX+pixelsPerTriangle,baseY);
+                    gc.drawLine(baseX,(int)baseY,baseX+pixelsPerTriangle,(int)baseY);
                 }
             }
         }
