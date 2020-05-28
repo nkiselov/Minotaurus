@@ -2,11 +2,13 @@ package MazeRenderers;
 
 import MazeRenderers.SquareMazeRenderer.SquareMazeRenderer;
 import MazeRenderers.SquareMazeRenderer.SquareMazeRendererOptions;
+import MazeRenderers.TriangularMazeRenderer.TriangularMazeRenderer;
+import MazeRenderers.TriangularMazeRenderer.TriangularMazeRendererOptions;
 import MazeUtilities.MazeImage;
 import MazeUtilities.MazePath;
 import Mazes.Maze;
-import Mazes.MazeType;
 import Mazes.SquareMaze.SquareMaze;
+import Mazes.TriangularMaze.TriangularMaze;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -19,6 +21,8 @@ public class MazeRenderer {
         switch(maze.getMazeType()){
             case SQUARE:
                 return SquareMazeRenderer.renderMaze((SquareMaze)maze,(SquareMazeRendererOptions)mazeRendererOptions);
+            case TRIANGULAR:
+                return TriangularMazeRenderer.renderMaze((TriangularMaze)maze,(TriangularMazeRendererOptions)mazeRendererOptions);
             default:
                 return null;
         }
@@ -28,6 +32,8 @@ public class MazeRenderer {
         switch(mazeImage.mazeType){
             case SQUARE:
                 return SquareMazeRenderer.drawOverlayPath(mazeImage,path,color);
+            case TRIANGULAR:
+                return TriangularMazeRenderer.drawOverlayPath(mazeImage,path,color);
             default:
                 return null;
         }

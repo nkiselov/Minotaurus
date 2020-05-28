@@ -6,6 +6,7 @@ import MazeGenerators.Prim.*;
 import Mazes.Maze;
 import Mazes.MazeOptions;
 import Mazes.SquareMaze.SquareMaze;
+import Mazes.TriangularMaze.TriangularMaze;
 
 public class MazeGenerator {
     public static Maze generateMaze(GeneratorOptions generatorOptions, MazeOptions mazeOptions){
@@ -13,6 +14,9 @@ public class MazeGenerator {
         switch (mazeOptions.getMazeType()){
             case SQUARE:
                 maze=new SquareMaze();
+                break;
+            case TRIANGULAR:
+                maze=new TriangularMaze();
                 break;
             default:
                 return null;

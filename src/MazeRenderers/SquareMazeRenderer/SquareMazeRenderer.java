@@ -2,8 +2,8 @@ package MazeRenderers.SquareMazeRenderer;
 
 import MazeUtilities.MazeImage;
 import MazeUtilities.MazePath;
-import MazeUtilities.SquareCoordinate;
-import MazeUtilities.SquareDirection;
+import MazeUtilities.Square.SquareCoordinate;
+import MazeUtilities.Square.SquareDirection;
 import Mazes.MazeType;
 import Mazes.SquareMaze.SquareMaze;
 
@@ -34,7 +34,7 @@ public class SquareMazeRenderer {
                 }
             }
         }
-        return new MazeImage(bufferedImage,MazeType.SQUARE,options);
+        return new MazeImage(bufferedImage,MazeType.SQUARE,options,maze);
     }
 
     public static MazeImage drawOverlayPath(MazeImage mazeImage, MazePath path, Color color){

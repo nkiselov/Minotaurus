@@ -1,6 +1,8 @@
 package Mazes.SquareMaze;
 
 import MazeUtilities.*;
+import MazeUtilities.Square.SquareCoordinate;
+import MazeUtilities.Square.SquareDirection;
 import Mazes.Maze;
 import Mazes.MazeOptions;
 import Mazes.MazeType;
@@ -31,15 +33,15 @@ public class SquareMaze implements Maze {
     }
 
     @Override
-    public List<Border> getAllBorders() {
-        List<Border> borders = new ArrayList<>();
+    public List<MazeBorder> getAllBorders() {
+        List<MazeBorder> borders = new ArrayList<>();
         for(int x=0; x<width; x++){
             for(int y=0; y<height; y++){
                 if(y<height-1) {
-                    borders.add(new Border(new SquareCoordinate(x, y), new SquareCoordinate(x, y + 1)));
+                    borders.add(new MazeBorder(new SquareCoordinate(x, y), new SquareCoordinate(x, y + 1)));
                 }
                 if(x<width-1){
-                    borders.add(new Border(new SquareCoordinate(x, y), new SquareCoordinate(x+1, y)));
+                    borders.add(new MazeBorder(new SquareCoordinate(x, y), new SquareCoordinate(x+1, y)));
                 }
             }
         }
@@ -69,7 +71,7 @@ public class SquareMaze implements Maze {
     }
 
     @Override
-    public void removeWall(Border border) {
+    public void removeWall(MazeBorder border) {
         int dx = ((SquareCoordinate)border.c2).x-((SquareCoordinate)border.c1).x;
         int dy = ((SquareCoordinate)border.c2).y-((SquareCoordinate)border.c1).y;
         removeWall(border.c1,new SquareDirection(dx,dy));

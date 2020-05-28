@@ -1,6 +1,6 @@
 package MazeGenerators.Kruskal;
 
-import MazeUtilities.Border;
+import MazeUtilities.MazeBorder;
 import MazeUtilities.MazeCoordinate;
 import MazeUtilities.MazeDirection;
 import Mazes.Maze;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Kruskal {
     public static void generateMaze(KruskalOptions kp, Maze maze) {
-        List<Border> borders = maze.getAllBorders();
+        List<MazeBorder> borders = maze.getAllBorders();
         Collections.shuffle(borders);
         int[] cellIds = new int[maze.getTotalCells()];
         for(int i=0; i<cellIds.length; i++){

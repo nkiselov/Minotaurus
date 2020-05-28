@@ -1,16 +1,17 @@
-import MazeGenerators.Backtracker.Backtracker;
 import MazeGenerators.Kruskal.KruskalOptions;
-import MazeGenerators.Prim.PrimOptions;
+import MazeRenderers.TriangularMazeRenderer.TriangularMazeRendererOptions;
 import MazeSolvers.AStar;
 import MazeUtilities.MazeImage;
 import MazeUtilities.MazePath;
-import MazeUtilities.SquareCoordinate;
+import MazeUtilities.Square.SquareCoordinate;
 import MazeGenerators.Backtracker.BacktrackerOptions;
 import MazeGenerators.MazeGenerator;
 import MazeRenderers.MazeRenderer;
 import MazeRenderers.SquareMazeRenderer.SquareMazeRendererOptions;
+import MazeUtilities.Triangular.TriangularCoordinate;
 import Mazes.Maze;
 import Mazes.SquareMaze.SquareMazeOptions;
+import Mazes.TriangularMaze.TriangularMazeOptions;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,27 +31,34 @@ public class Main extends Application {
         primaryStage.show();
         double hardness = 3;
 
-        //Backtracker
-        //Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate((int)(15*hardness/2),0)), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
-        //Kruskal
-        //Maze maze = MazeGenerator.generateMaze(new KruskalOptions(), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
-        //Prim
-        //Maze maze = MazeGenerator.generateMaze(new PrimOptions(new SquareCoordinate(0,0)), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
-        //Render
-        //MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10),new File("squareBacktrackerMaze.png"),"png");
+//        //Backtracker
+//        Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate((int)(15*hardness/2),0)), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
+//        //Kruskal
+//        Maze maze = MazeGenerator.generateMaze(new KruskalOptions(), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
+//        //Prim
+//        Maze maze = MazeGenerator.generateMaze(new PrimOptions(new SquareCoordinate(0,0)), new SquareMazeOptions((int)(15*hardness),(int)(20*hardness)));
+//        //Render
+//        MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10),new File("squareBacktrackerMaze.png"),"png");
 
-        //Create 50x50 maze using backtracker starting at (10,10)
-        Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate(10,10)), new SquareMazeOptions(50,50));
-        //Render maze
-        MazeImage mazeImage = MazeRenderer.renderMaze(maze, new SquareMazeRendererOptions(10,1));
-        //Save maze image without solution
-        MazeRenderer.saveMazeImage(mazeImage,new File("squareKruskalMaze.png"),"png");
-        //Generate solution using AStar
+//        //Create 50x50 maze using backtracker starting at (10,10)
+//        Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate(10,10)), new SquareMazeOptions(50,50));
+//        //Render maze
+//        MazeImage mazeImage = MazeRenderer.renderMaze(maze, new SquareMazeRendererOptions(10,1));
+//        //Save maze image without solution
+//        MazeRenderer.saveMazeImage(mazeImage,new File("squareKruskalMaze.png"),"png");
+//        //Generate solution using AStar
+//        MazePath solution = AStar.solve(maze);
+//        //Draw solution overlay red
+//        MazeRenderer.drawOverlayPath(mazeImage,solution, Color.blue);
+//        //Save maze image with solution
+//        MazeRenderer.saveMazeImage(mazeImage,new File("squareKruskalMazeSolution.png"),"png");
+        Maze maze = MazeGenerator.generateMaze(new KruskalOptions(), new TriangularMazeOptions(50));
+        MazeImage mazeImage = MazeRenderer.renderMaze(maze, new TriangularMazeRendererOptions(10,1));
+        MazeRenderer.saveMazeImage(mazeImage,new File("triangularBacktrackerMaze.png"),"png");
         MazePath solution = AStar.solve(maze);
-        //Draw solution overlay red
         MazeRenderer.drawOverlayPath(mazeImage,solution, Color.blue);
-        //Save maze image with solution
-        MazeRenderer.saveMazeImage(mazeImage,new File("squareKruskalMazeSolution.png"),"png");
+        MazeRenderer.saveMazeImage(mazeImage,new File("triangularBacktrackerMazeSolution.png"),"png");
+        int y=0;
     }
 
 

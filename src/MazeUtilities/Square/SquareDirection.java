@@ -1,4 +1,6 @@
-package MazeUtilities;
+package MazeUtilities.Square;
+
+import MazeUtilities.MazeDirection;
 
 public class SquareDirection implements MazeDirection {
     public int dx;

@@ -1,6 +1,6 @@
 package Mazes.SquareMaze;
 
-import MazeUtilities.SquareCoordinate;
+import MazeUtilities.Square.SquareCoordinate;
 import Mazes.MazeOptions;
 import Mazes.MazeType;
 

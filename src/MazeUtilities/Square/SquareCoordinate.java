@@ -1,6 +1,8 @@
-package MazeUtilities;
+package MazeUtilities.Square;
 
-public class SquareCoordinate implements MazeCoordinate{
+import MazeUtilities.MazeCoordinate;
+
+public class SquareCoordinate implements MazeCoordinate {
     public int x;
     public int y;
 

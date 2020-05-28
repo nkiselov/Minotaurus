@@ -1,6 +1,6 @@
 package Mazes;
 
-import MazeUtilities.Border;
+import MazeUtilities.MazeBorder;
 import MazeUtilities.MazeCoordinate;
 import MazeUtilities.MazeDirection;
 
@@ -10,11 +10,11 @@ public interface Maze {
     public MazeType getMazeType();
     //Generator
     public void initialize(MazeOptions mazeOptions);
-    public List<Border> getAllBorders();
+    public List<MazeBorder> getAllBorders();
     public int getTotalCells();
     public int uniqueId(MazeCoordinate mc);
     public void removeWall(MazeCoordinate mc, MazeDirection direction);
-    public void removeWall(Border border);
+    public void removeWall(MazeBorder border);
     public MazeCoordinate move(MazeCoordinate mc, MazeDirection direction);
     public List<MazeDirection> getPossibleDirections(MazeCoordinate mc);
     public boolean inside(MazeCoordinate mc);
