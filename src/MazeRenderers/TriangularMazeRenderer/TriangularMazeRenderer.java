@@ -59,7 +59,7 @@ public class TriangularMazeRenderer {
         for(int i=0; i<path.path.size()-1; i++) {
             TriangularCoordinate tc = (TriangularCoordinate) path.path.get(i);
             int newX = options.margin+pixelsPerTriangle*tc.x+(tc.y+1)*pixelsPerTriangle/2;
-            int newY = height-(int) (yMargin+tc.y*triangleTop*pixelsPerTriangle);
+            double newY = height-yMargin-tc.y*triangleTop*pixelsPerTriangle;
             if(tc.z){
                 newX+=pixelsPerTriangle/2;
                 newY-= 2*triangleTop*pixelsPerTriangle/3;
@@ -67,12 +67,12 @@ public class TriangularMazeRenderer {
                 newY-= triangleTop*pixelsPerTriangle/3;
             }
             if(start){
-                gc.drawLine(prevX,prevY,newX,newY);
+                gc.drawLine(prevX,prevY,newX,(int)newY);
             }else{
                 start=true;
             }
             prevX=newX;
-            prevY=newY;
+            prevY=(int)newY;
         }
         return mazeImage;
     }

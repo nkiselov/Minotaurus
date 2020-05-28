@@ -57,13 +57,13 @@ public class Main extends Application {
         //Render maze
         MazeImage mazeImage = MazeRenderer.renderMaze(maze, new TriangularMazeRendererOptions(10,1));
         //Save maze image without solution
-        MazeRenderer.saveMazeImage(mazeImage,new File("triangularBacktrackerMaze.png"),"png");
+        MazeRenderer.saveMazeImage(mazeImage,new File("triangularPrimMaze.png"),"png");
         //Generate solution using AStar
         MazePath solution = AStar.solve(maze);
         //Draw solution overlay red
         MazeRenderer.drawOverlayPath(mazeImage,solution, Color.red);
         //Save maze image with solution
-        MazeRenderer.saveMazeImage(mazeImage,new File("triangularBacktrackerMazeSolution.png"),"png");
+        MazeRenderer.saveMazeImage(mazeImage,new File("triangularPrimMazeSolution.png"),"png");
     }
 
 
