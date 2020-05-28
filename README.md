@@ -26,7 +26,7 @@ MazeRenderer.saveMaze(maze, new SquareMazeRendererOptions(10,1),new File("maze.p
 
 ### Finding and rendering solution
 ```java
-//Create 50x50 maze using backtracker starting at (10,10)
+//Create 50x50 square maze using backtracker starting at (10,10)
 Maze maze = MazeGenerator.generateMaze(new BacktrackerOptions(new SquareCoordinate(10,10)), new SquareMazeOptions(50,50));
 
 //Render maze
@@ -60,3 +60,5 @@ MazeRenderer.saveMazeImage(mazeImage,new File("mazeWithSolution.png"),"png");
 ## Supported layouts
 
 * Square maze
+
+* Triangular maze
